@@ -1,4 +1,4 @@
-﻿"""linguaflow CLI - AI-powered documentation translation."""
+"""linguaflow CLI - AI-powered documentation translation."""
 
 import json
 import os
@@ -78,7 +78,7 @@ def translate(
         raise typer.Exit(1)
 
     # Check API key
-    if not get_api_key():
+    if not get_api_key() and "127.0.0.1" not in load_global_config().get("api_base", ""):
         console.print("[red]No API key configured![/]")
         console.print("Set it with: linguaflow config set api_key YOUR_KEY")
         console.print("Or set the LINGUAFLOW_API_KEY or OPENAI_API_KEY environment variable.")

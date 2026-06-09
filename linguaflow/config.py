@@ -2,8 +2,8 @@ import os
 import json
 
 DEFAULT_CONFIG = {
-    "api_base": "https://api.openai.com/v1",
-    "model": "gpt-4o-mini",
+    "api_base": "http://127.0.0.1:57322/v1",
+    "model": "deepseek-v4-flash",
     "temperature": 0.3,
     "target_languages": ["zh-CN", "ja", "ko", "es", "pt-BR"],
     "max_retries": 3,
@@ -44,4 +44,9 @@ def get_api_key():
     if not key:
         cfg = load_global_config()
         key = cfg.get("api_key", "")
+    # If using local proxy, no key needed
+    cfg = load_global_config()
+    api_base = cfg.get("api_base", DEFAULT_CONFIG["api_base"])
+    if "127.0.0.1" in api_base or "localhost" in api_base:
+        return key or "no-key-required"
     return key
