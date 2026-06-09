@@ -23,13 +23,21 @@
 | Batch translates to multiple languages | ❌ | ✅ |
 
 ## Quick Start
+## Zero Config (Local Proxy)
+
+If you're running [codex-plus-plus](https://github.com/BigPizzaV3/CodexPlusPlus) locally:
+
+```bash
+pip install linguaflow
+linguaflow translate README.md -l zh-CN,ja,ko  # works immediately!
+```
+
+No API key needed. linguaflow auto-detects the local proxy and routes through it.
+
 
 ```bash
 # Install
 pip install linguaflow
-
-# Set your API key
-export LINGUAFLOW_API_KEY=your-key
 
 # Translate your README to Chinese, Japanese, and Korean
 linguaflow translate README.md -l zh-CN,ja,ko
