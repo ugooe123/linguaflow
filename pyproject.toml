@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "linguaflow"
+version = "0.1.0"
+description = "AI-powered documentation translation that understands context"
+readme = "README.md"
+requires-python = ">=3.9"
+license = {text = "MIT"}
+keywords = ["i18n", "translation", "documentation", "ai", "cli"]
+
+authors = [
+  {name = "linguaflow", email = "ugooe123@users.noreply.github.com"}
+]
+
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Environment :: Console",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Topic :: Software Development :: Internationalization",
+  "Topic :: Text Processing :: Linguistic",
+]
+
+dependencies = [
+  "typer>=0.12",
+  "rich>=13.0",
+  "requests>=2.31",
+]
+
+[project.urls]
+Homepage = "https://github.com/ugooe123/linguaflow"
+Repository = "https://github.com/ugooe123/linguaflow"
+Documentation = "https://github.com/ugooe123/linguaflow#readme"
+
+[project.scripts]
+linguaflow = "linguaflow.cli:app"
+
+[tool.setuptools.packages.find]
+include = ["linguaflow*"]
